@@ -1,0 +1,29 @@
+{% extends 'base_generic.html' %}
+
+{% block title %}Companion Request List{% endblock %}
+
+{% block content %}
+<h2>Companion Requests</h2>
+<a href="{% url 'companion_request_create' %}" class="btn btn-primary">Create Companion Request</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Trip</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for companion_request in companion_requests %}
+        <tr>
+            <td>{{ companion_request.trip }}</td>
+            <td>{{ companion_request.status }}</td>
+            <td>
+                <a href="{% url 'companion_request_update' companion_request.id %}" class="btn btn-warning">Edit</a>
+                <a href="{% url 'companion_request_delete' companion_request.id %}" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

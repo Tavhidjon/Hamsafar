@@ -1,0 +1,12 @@
+{% extends 'base_generic.html' %}
+
+{% block title %}{% if object %}Edit Companion Request{% else %}Create Companion Request{% endif %}{% endblock %}
+
+{% block content %}
+<h2>{% if object %}Edit Companion Request{% else %}Create Companion Request{% endif %}</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-success">Save</button>
+</form>
+{% endblock %}

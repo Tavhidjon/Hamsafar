@@ -1,0 +1,10 @@
+{% extends 'base_generic.html' %}
+{% block content %}
+  <h2>Update Booking</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <a href="{% url 'booking_list' %}">Back to booking list</a>
+    <button type="submit">Save Changes</button>
+  </form>
+{% endblock %}

@@ -1,0 +1,108 @@
+{% extends 'base_generic.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+    <div class="login-container">
+        <h2 class="text-center">Login</h2>
+
+        <form method="post" class="login-form">
+            {% csrf_token %}
+            <div class="form-group">
+                {{ form.as_p }}
+            </div>
+            <button type="submit" class="btn btn-custom btn-block">Login</button>
+        </form>
+
+        <p class="text-center mt-3">Don't have an account? <a href="#">Sign up</a></p>
+    </div>
+{% endblock %}
+
+{% block extra_css %}
+    <style>
+        /* Global Styles */
+        body {
+            background-color: #f0f4f8;
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .login-container {
+            max-width: 400px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
+        }
+
+        h2 {
+            color: #333;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            margin-top: 5px;
+            transition: border 0.3s ease;
+        }
+
+        .form-group input:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        .btn-custom {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-custom:hover {
+            background-color: #0056b3;
+        }
+
+        p {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        p a {
+            color: #007bff;
+        }
+
+        p a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Styling */
+        @media (max-width: 600px) {
+            .login-container {
+                margin: 20px;
+                padding: 20px;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+{% endblock %}

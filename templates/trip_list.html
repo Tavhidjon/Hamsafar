@@ -1,0 +1,35 @@
+{% extends 'base_generic.html' %}
+
+{% block title %}Trip List{% endblock %}
+
+{% block content %}
+<h2>Trip List</h2>
+<a href="{% url 'trip_create' %}" class="btn btn-primary">Create New Trip</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Start Location</th>
+            <th>End Location</th>
+            <th>Date</th>
+            <th>Seats Available</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for trip in trips %}
+        <tr>
+            <td>{{ trip.start_location }}</td>
+            <td>{{ trip.end_location }}</td>
+            <td>{{ trip.date }}</td>
+            <td>{{ trip.seats_available }}</td>
+            <td>{{ trip.status }}</td>
+            <td>
+                <a href="{% url 'trip_update' trip.id %}" class="btn btn-warning">Edit</a>
+                <a href="{% url 'trip_delete' trip.id %}" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

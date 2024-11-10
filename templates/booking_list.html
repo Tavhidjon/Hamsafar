@@ -1,0 +1,29 @@
+{% extends 'base_generic.html' %}
+
+{% block title %}Booking List{% endblock %}
+
+{% block content %}
+<h2>Bookings</h2>
+<a href="{% url 'booking_create' %}" class="btn btn-primary">Create New Booking</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Trip</th>
+            <th>User</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for booking in bookings %}
+        <tr>
+            <td>{{ booking.trip }}</td>
+            <td>{{ booking.user }}</td>
+            <td>
+                <a href="{% url 'booking_update' booking.id %}" class="btn btn-warning">Edit</a>
+                <a href="{% url 'booking_delete' booking.id %}" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

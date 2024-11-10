@@ -1,0 +1,51 @@
+{% extends 'base_generic.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+  <div class="home-page">
+      <h1>Welcome to TripBuddy!</h1>
+      <p>Your one-stop platform for finding travel companions and booking trips.</p>
+      <div class="cta">
+          <a href="{% url 'trip_list' %}" class="btn">Explore Trips</a>
+          <a href="{% url 'companion_request_list' %}" class="btn">Find a Companion</a>
+      </div>
+  </div>
+  <style>
+    .home-page {
+        text-align: center;
+        margin-top: 50px;
+    }
+
+    .home-page h1 {
+        font-size: 3rem;
+        color: #222;
+        margin-bottom: 20px;
+    }
+
+    .home-page p {
+        font-size: 1.2rem;
+        color: #555;
+        margin-bottom: 30px;
+    }
+
+    .cta {
+        margin-top: 20px;
+    }
+
+    .btn {
+        background-color: #007bff;
+        color: white;
+        padding: 12px 30px;
+        font-size: 1rem;
+        border-radius: 5px;
+        text-decoration: none;
+        margin: 0 10px;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+        background-color: #0056b3;
+    }
+  </style>
+{% endblock %}
